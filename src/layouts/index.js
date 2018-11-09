@@ -47,26 +47,8 @@ class Layout extends Component {
                 <Meta meta={meta} title={title} />
                 <Container>
                   <Header siteTitle={data.site.siteMetadata.title} />
-                  {useAuthentication ? (
-                    <Authentication.Consumer>
-                      {({ authenticated }) => (
-                        <Content
-                          center={!authenticated || isCentered}
-                          decoration={useAuthentication}
-                        >
-                          {typeof authenticated !==
-                          'boolean' ? null : authenticated === true ? (
-                            children
-                          ) : (
-                            <Login />
-                          )}
-                        </Content>
-                      )}
-                    </Authentication.Consumer>
-                  ) : (
-                    <Content decoration={true}>{children}</Content>
-                  )}
-                  <Footer stripes={location.pathname === `/`} />
+
+                  <Content decoration={true}>{children}</Content>
                 </Container>
               </Authentication.Provider>
             </Theme.Provider>

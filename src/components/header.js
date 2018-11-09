@@ -56,10 +56,7 @@ const Header = ({ siteTitle }) => (
             <GatsbyLogo
               css={{ marginRight: '0.5rem', position: 'relative', top: -2 }}
             />
-            {siteTitle
-              .split('Gatsby')
-              .pop()
-              .trim()}
+            OneGraph Trello to Netlify
           </StyledLink>
         </h1>
         <div>
@@ -71,19 +68,6 @@ const Header = ({ siteTitle }) => (
           >
             <ThemeToggle color={theme.link} size={20} />
           </IconButton>
-          <Authentication.Consumer>
-            {({ authenticated, logout }) => (
-              <>
-                {authenticated ? (
-                  <Signout
-                    css={{ color: theme.link, position: 'relative', top: 3 }}
-                    onClick={logout()}
-                    title="Sign out"
-                  />
-                ) : null}
-              </>
-            )}
-          </Authentication.Consumer>
         </div>
       </Container>
     )}

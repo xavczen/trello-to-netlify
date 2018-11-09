@@ -7,7 +7,7 @@ const { repository } = require('./package.json')
 module.exports = {
   siteMetadata: {
     repository,
-    title: 'Gatsby Mail',
+    title: 'Cazalot Trello Blog',
     unauthenticatedRoutes: [`/privacy-policy/`, `/terms-of-service/`],
   },
   plugins: [
@@ -45,11 +45,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-graphql',
       options: {
-        typeName: 'GitHub',
-        fieldName: 'github',
-        url: 'https://api.github.com/graphql',
+        typeName: 'OneGraph_GRAPHQL_SERVICE',
+        fieldName: 'oneGraph',
+        url: `https://serve.onegraph.com/dynamic?app_id=${
+          process.env.GATSBY_OG_APP_ID
+        }`,
         headers: {
-          Authorization: `bearer ${process.env.GITHUB_API_TOKEN}`,
+          Authentication: `Bearer ${process.env.ONEGRAPH_BUILD_API_TOKEN}`,
         },
       },
     },

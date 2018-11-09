@@ -55,10 +55,12 @@ function Footer({ stripes }) {
     <StaticQuery
       query={graphql`
         query FooterQuery {
-          github {
-            repository(owner: "dschau", name: "gatsby-mail") {
-              stargazers {
-                totalCount
+          oneGraph {
+            gitHub {
+              repository(owner: "dschau", name: "gatsby-mail") {
+                stargazers {
+                  totalCount
+                }
               }
             }
           }
@@ -93,7 +95,7 @@ function Footer({ stripes }) {
                   href={`${data.site.siteMetadata.repository.url}/stargazers`}
                 >
                   <strong css={{ fontWeight: 'normal', marginRight: 2 }}>
-                    {data.github.repository.stargazers.totalCount}
+                    {data.oneGraph.gitHub.repository.stargazers.totalCount}
                   </strong>
                   <MdStar css={{ verticalAlign: 'sub' }} size={16} />
                 </Link>
